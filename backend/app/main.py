@@ -4,8 +4,10 @@ from fastapi.responses import JSONResponse
 
 from app.database import Base, engine
 from app.routes import cities, calculator, plans, recommendations, analytics
+from app.seed import seed
 
 Base.metadata.create_all(bind=engine)
+seed()
 
 app = FastAPI(
     title="MoveMate API",
